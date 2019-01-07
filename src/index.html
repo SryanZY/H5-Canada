@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5-trip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script>
+        ! function (a, b) {
+            function c() {
+                var b = f.getBoundingClientRect().width;
+                b / i > 540 && (b = 540 * i);
+                var c = b / 10;
+                f.style.fontSize = c + "px", k.rem = a.rem = c
+            }
+            var d, e = a.document,
+                f = e.documentElement,
+                g = e.querySelector('meta[name="viewport"]'),
+                h = e.querySelector('meta[name="flexible"]'),
+                i = 0,
+                j = 0,
+                k = b.flexible || (b.flexible = {});
+            if (g) {
+                var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                l && (j = parseFloat(l[1]), i = parseInt(1 / j))
+            } else if (h) {
+                var m = h.getAttribute("content");
+                if (m) {
+                    var n = m.match(/initial\-dpr=([\d\.]+)/),
+                        o = m.match(/maximum\-dpr=([\d\.]+)/);
+                    n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2)))
+                }
+            }
+            if (!i && !j) {
+                var p = (a.navigator.appVersion.match(/android/gi), a.navigator.appVersion.match(/iphone/gi)),
+                    q = a.devicePixelRatio;
+                i = p ? q >= 3 && (!i || i >= 3) ? 3 : q >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i
+            }
+            if (f.setAttribute("data-dpr", i), !g)
+                if (g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + j + ", maximum-scale=" + j + ", minimum-scale=" + j + "user-scalable=no"),
+                    f.firstElementChild) f.firstElementChild.appendChild(g);
+                else {
+                    var r = e.createElement("div");
+                    r.appendChild(g), e.write(r.innerHTML)
+                }
+            a.addEventListener("resize", function () {
+                clearTimeout(d), d = setTimeout(c, 300)
+            }, !1), a.addEventListener("pageshow", function (a) {
+                a.persisted && (clearTimeout(d), d = setTimeout(c, 300))
+            }, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function () {
+                e.body.style.fontSize = 12 * i + "px"
+            }, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function (a) {
+                var b = parseFloat(a) * this.rem;
+                return "string" == typeof a && a.match(/rem$/) && (b += "px"), b
+            }, k.px2rem = function (a) {
+                var b = parseFloat(a) / this.rem;
+                return "string" == typeof a && a.match(/px$/) && (b += "rem"), b
+            }
+        }(window, window.lib || (window.lib = {}));
+    </script>
+</head>
+<body>
+    <div id="fullpage">
+        <div class="section section-one">
+            <div class="container">
+                <h2 class="title">1月加拿大极光之旅出团通知书</h2>
+                <p class="text">亲爱的影友，您好！感谢您参加本次的加拿大极光之旅！为保障本次旅行顺利进行并取得大家的一致认可，我们特为您准备一份本次活动的出团通知，请务必了解以下内容并积极配合，关于行程若有疑问，欢迎与我们联系，十分感谢！</p>
+                <div class="left_img animated bounceInLeft"></div>
+                <div class="right_img animated bounceInRight"></div>
+            </div>
+        </div>
+        <div class="section section-two">
+            <div class="bg-red animated slideInDown">集合信息</div>
+            <div class="container">
+                <p class="sec-title">
+                    <span class="attention">【集合时间】</span>
+                    <span class="desc">2019年1月12日 下午14：50</span>
+                </p>
+                <p class="sec-title">
+                    <span class="attention">【集合地点】</span>
+                    <span class="desc">上海浦东机场T2航班楼值机柜台G07</span>
+                </p>
+                <p class="sec-title">
+                    <span class="attention">【联系方式】</span>
+                    <span class="desc">领队：王元梅 18810770684</span>
+                </p>
+                <p class="sec-title">
+                    <span class="attention">【温馨提示】</span>
+                    <span class="desc tishi">
+                        <span>1.当天请保持手机畅通</span>
+                        <span>2.市区开车到浦东机场约50公里</span>
+                        <span>3.大约1小时40分钟</span>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="section section-three">
+            <div class="bg-red animated lightSpeedIn">用餐安排</div>
+            <div class="text-wrapper">尽量安排中餐，并避免菜品重复，加拿大落基山段地接说午餐安排会有困难，还在和地接沟通解决。请大家知晓。</div>
+            <div class="img-container"></div>
+            <div class="icon-back"></div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.js"></script>
+    <script>
+        $(function () {
+            $('#fullpage').fullpage({
+                // sectionsColor: ['#ccc', 'yellow', '#3ab'],
+                anchors: ['page1', 'page2', 'page3'],
+                menu: '#dataMenu', // 对应切换的id
+                navigation: true, // 是否显示导航菜单（小圆点）
+                navigationPosition: 'right'
+            });
+            $('.icon-back').click(function () {
+                $.fn.fullpage.moveTo(1);
+            });
+        });
+    </script>
+</body>
+</html>
